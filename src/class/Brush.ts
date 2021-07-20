@@ -16,6 +16,7 @@ export interface iBrushOverrides {
   velocityAngle: number;
   velocityX: number;
   velocityY: number;
+  lightness: number;
 }
 
 export default class Brush {
