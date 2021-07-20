@@ -1,4 +1,4 @@
-interface iBrushOverrides {
+export interface iBrushOverrides {
   speedX: number;
   speedY: number;
   speedMultiplier: number;
