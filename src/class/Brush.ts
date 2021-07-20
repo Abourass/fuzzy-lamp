@@ -5,6 +5,8 @@ export interface iBrushOverrides {
   gravity: number;
   radius: number;
   angle: number;
+  angleX: number;
+  angleY: number;
   maxSize: number;
   minSize: number;
   size: number;
@@ -12,6 +14,8 @@ export interface iBrushOverrides {
   opacity: number;
   velocitySize: number;
   velocityAngle: number;
+  velocityX: number;
+  velocityY: number;
 }
 
 export default class Brush {
