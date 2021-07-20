@@ -6,17 +6,19 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 export default class Plants extends Brush {
     angle;
-    radius;
+    velocitySize;
+    velocityAngle;
     constructor(x, y, override = null) {
         super(x, y, override);
         this.angle = override?.angle ?? Math.random() * 6.2;
-        this.radius = override?.radius ?? randomIntInRange(10, 100);
+        this.velocitySize = override?.velocitySize ?? Math.random() * 0.2 + 0.05;
+        this.velocityAngle = override?.velocityAngle ?? Math.random() * 0.2 + 0.05;
     }
     update(animate = false) {
         this.x += this.speedX + Math.sin(this.angle);
-        this.y += this.speedY;
-        this.size += 0.1;
-        this.angle += 0.1;
+        this.y += this.speedY + Math.sin(this.angle);
+        this.size += this.velocitySize;
+        this.angle += this.velocityAngle;
         if (this.size < this.maxSize && ctx instanceof CanvasRenderingContext2D) {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);

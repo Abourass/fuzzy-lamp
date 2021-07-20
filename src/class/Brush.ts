@@ -10,6 +10,8 @@ export interface iBrushOverrides {
   size: number;
   color: string;
   opacity: number;
+  velocitySize: number;
+  velocityAngle: number;
 }
 
 export default class Brush {
