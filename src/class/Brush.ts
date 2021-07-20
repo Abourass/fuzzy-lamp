@@ -26,5 +26,5 @@ export default class Brush {
     this.size = override?.size ?? Math.random() * 1 + 2;
   }
 
-  update() { }
+  update(animate: boolean) { }
 }

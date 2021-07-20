@@ -15,5 +15,5 @@ export default class Brush {
         this.maxSize = override?.maxSize ?? Math.random() * 7 + 5;
         this.size = override?.size ?? Math.random() * 1 + 2;
     }
-    update() { }
+    update(animate) { }
 }

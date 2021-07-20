@@ -12,9 +12,7 @@ export default class NerdsRope extends Brush {
         if (this.size < this.maxSize && ctx instanceof CanvasRenderingContext2D) {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            const hsl = `hsl(${randomIntInRange(1, 150)},${randomIntInRange(1, 150)}%,50%)`;
-            console.log(hsl);
-            ctx.fillStyle = hsl;
+            ctx.fillStyle = `hsl(${randomIntInRange(1, 150)},${randomIntInRange(1, 150)}%,50%)`;
             ctx.fill();
             ctx.stroke();
             if (animate)
