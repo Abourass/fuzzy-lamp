@@ -17,7 +17,7 @@ export default class Plants extends Brush {
   }
 
   update(animate: boolean = false) {
-    this.x += this.speedX + Math.cos(this.angle) * this.radius;
+    this.x += this.speedX + Math.sin(this.angle);
     this.y += this.speedY;
     this.size += 0.1;
     this.angle += 0.1;
