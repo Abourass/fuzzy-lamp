@@ -7,7 +7,8 @@ let drawing = false, animate = false, brush = NerdsRope, loops = 1;
 const canvas = document.querySelector('#canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 
-document.querySelector('#filter')?.addEventListener('change', (event) => { ctx.globalCompositeOperation = event.target.value; });
+const filterInput = document.querySelector('#filter') as HTMLSelectElement;
+filterInput.addEventListener('change', (event) => { ctx.globalCompositeOperation = event.target.value; });
 
 
 window.addEventListener('mousemove', (e: MouseEvent) => { if (drawing) attachBrush(e, brush, animate, loops) });
@@ -20,8 +21,10 @@ window.addEventListener('keyup', (e) => {
    if (e.key === 'c') { clearCanvas(); }
    if (e.key === '1') { brush = NerdsRope; }
    if (e.key === '2') { brush = Plants; }
-   if (e.key === 't') { 
-    ctx.globalCompositeOperation = ['lighten', 'multiply', 'screen', 'overlay', 'darken', 'color-dodge', 'color-burn', 'hard-light', 'soft-light', 'difference', 'exclusion', 'hue', 'saturation', 'color', 'luminosity'][Math.floor(Math.random() * 10)];
+   if (e.key === 't') {
+     const filterChoice = ['lighten', 'multiply', 'screen', 'overlay', 'darken', 'color-dodge', 'color-burn', 'hard-light', 'soft-light', 'difference', 'exclusion', 'hue', 'saturation', 'color', 'luminosity'][Math.floor(Math.random() * 10)];
+    ctx.globalCompositeOperation = filterChoice;
+    filterInput.value = filterChoice;
   }
   if (e.key === 'g') { ctx.lineWidth += 0.1 }
   if (e.key === 'b') { ctx.lineWidth -= 0.1 }
