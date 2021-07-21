@@ -2,7 +2,9 @@ import Brush from "../class/Brush.js";
 import randomIntInRange from "../tools/randomIntInRange.js";
 
 const canvas = document.querySelector('#canvas') as HTMLCanvasElement;
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
+ctx.lineWidth = 0.4;
+ctx.globalCompositeOperation = 'lighten';
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 

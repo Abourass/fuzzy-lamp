@@ -2,6 +2,8 @@ import Brush from "../class/Brush.js";
 import randomIntInRange from "../tools/randomIntInRange.js";
 const canvas = document.querySelector('#canvas');
 const ctx = canvas.getContext('2d');
+ctx.lineWidth = 0.4;
+ctx.globalCompositeOperation = 'lighten';
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 export default class NerdsRope extends Brush {

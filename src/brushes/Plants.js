@@ -23,7 +23,6 @@ class Flower {
         this.x = x;
         this.y = y;
         this.size = size;
-        console.log(size);
         this.x = x;
         this.y = y;
         this.size = size;

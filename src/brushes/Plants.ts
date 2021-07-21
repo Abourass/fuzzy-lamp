@@ -20,7 +20,6 @@ class Flower {
   angleVelocity: number;
 
   constructor(public x: number, public y: number, public size: number) {
-    console.log(size)
     this.x = x;
     this.y = y;
     this.size = size;
