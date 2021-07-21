@@ -5,6 +5,7 @@ import clearCanvas from "./tools/clearCanvas.js";
 let drawing = false, animate = false, brush = NerdsRope, loops = 1;
 const canvas = document.querySelector('#canvas');
 const ctx = canvas.getContext('2d');
+document.querySelector('#filter')?.addEventListener('change', (event) => { ctx.globalCompositeOperation = event.target.value; });
 window.addEventListener('mousemove', (e) => { if (drawing)
     attachBrush(e, brush, animate, loops); });
 window.addEventListener('mousedown', () => drawing = true);

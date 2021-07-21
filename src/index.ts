@@ -7,6 +7,9 @@ let drawing = false, animate = false, brush = NerdsRope, loops = 1;
 const canvas = document.querySelector('#canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 
+document.querySelector('#filter')?.addEventListener('change', (event) => { ctx.globalCompositeOperation = event.target.value; });
+
+
 window.addEventListener('mousemove', (e: MouseEvent) => { if (drawing) attachBrush(e, brush, animate, loops) });
 window.addEventListener('mousedown', () => drawing = true);
 window.addEventListener('mouseup', () => drawing = false);
