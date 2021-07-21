@@ -2,8 +2,61 @@ import Brush from "../class/Brush.js";
 import randomIntInRange from "../tools/randomIntInRange.js";
 const canvas = document.querySelector('#canvas');
 const ctx = canvas.getContext('2d');
+ctx.lineWidth = 0.4;
+ctx.globalCompositeOperation = 'lighten';
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+class Flower {
+    x;
+    y;
+    size;
+    image;
+    maxFlowerSize;
+    frameSize;
+    frameY;
+    frameX;
+    willFlower;
+    growthVelocity;
+    angle;
+    angleVelocity;
+    constructor(x, y, size) {
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        console.log(size);
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        this.growthVelocity = Math.random() * 0.3 + 0.2;
+        this.maxFlowerSize = this.size + Math.random() * 100;
+        // Define our sprite sheet
+        this.image = new Image();
+        this.image.src = "/src/assets/flowers.png";
+        // Sprite sheet size
+        this.frameSize = 100;
+        // These select from the sprite sheet
+        this.frameY = Math.floor(Math.random() * 3);
+        this.frameX = Math.floor(Math.random() * 3);
+        // Make only the longest roots bloom
+        this.willFlower = this.size > 11.5;
+        // Spin some blooms
+        this.angle = 0;
+        this.angleVelocity = Math.random() * 0.05 - 0.025;
+    }
+    grow() {
+        if (this.size < this.maxFlowerSize && this.willFlower) {
+            this.size += this.growthVelocity;
+            this.angle += this.angleVelocity;
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.rotate(this.angle);
+            ctx.drawImage(this.image, this.frameSize * this.frameX, this.frameSize * this.frameY, this.frameSize, this.frameSize, 0 - this.size / 2, // Center the flowers
+            0 - this.size / 2, this.size, this.size);
+            ctx.restore();
+            requestAnimationFrame(this.grow.bind(this));
+        }
+    }
+}
 export default class Plants extends Brush {
     angleX;
     angleY;
@@ -36,6 +89,10 @@ export default class Plants extends Brush {
             ctx.stroke();
             if (animate)
                 requestAnimationFrame(this.update.bind(this, true));
+        }
+        else {
+            const flower = new Flower(this.x, this.y, this.size + 1);
+            flower.grow();
         }
         if (this.x > canvas.width - this.size || this.x < 0) {
             this.speedX = -this.speedX;
