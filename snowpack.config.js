@@ -5,16 +5,17 @@
 module.exports = {
   mount: {
   },
-  plugins: [
-    /* ... */
-  ],
+  plugins: ['@snowpack/plugin-webpack'],
   packageOptions: {
     /* ... */
   },
   devOptions: {
     /* ... */
   },
-  buildOptions: {
-    /* ... */
+  buildOptions: { out: "docs", },
+  optimize: {
+    bundle: true,
+    minify: true,
+    target: 'es2018',
   },
 };
