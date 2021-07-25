@@ -17,6 +17,10 @@ lineWidthInput.addEventListener('change', (event) => {
     lineWidth = event.target.value;
     ctx.lineWidth = lineWidth;
 });
+const loopsInput = document.querySelector('#loops');
+loopsInput.addEventListener('change', (event) => { loops = event.target.value; });
+const animateCheckbox = document.querySelector('#animate');
+animateCheckbox.addEventListener('change', (event) => { animate = event.target.checked; });
 window.addEventListener('mousemove', (e) => { if (drawing)
     attachBrush(e, brush, animate, loops); });
 window.addEventListener('mousedown', () => drawing = true);
@@ -24,14 +28,15 @@ window.addEventListener('mouseup', () => drawing = false);
 window.addEventListener('keyup', (e) => {
     if (e.key === 'a') {
         animate = (animate) ? false : true;
+        animateCheckbox.checked = animate;
     }
     if (e.key === '+') {
         loops++;
-        console.log(loops);
+        loopsInput.value = loops.toString();
     }
     if (e.key === '-' && loops > 1) {
         loops--;
-        console.log(loops);
+        loopsInput.value = loops.toString();
     }
     if (e.key === 'c') {
         clearCanvas();

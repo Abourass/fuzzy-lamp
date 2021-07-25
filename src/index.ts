@@ -16,14 +16,27 @@ lineWidthInput.addEventListener('change', (event: any) => {
   lineWidth = event.target.value;
   ctx.lineWidth = lineWidth;
 });
+const loopsInput = document.querySelector('#loops') as HTMLInputElement;
+loopsInput.addEventListener('change', (event: any) => { loops = event.target.value; });
+const animateCheckbox = document.querySelector('#animate') as HTMLInputElement; 
+animateCheckbox.addEventListener('change', (event: any) => { animate = event.target.checked; });
 
 window.addEventListener('mousemove', (e: MouseEvent) => { if (drawing) attachBrush(e, brush, animate, loops) });
 window.addEventListener('mousedown', () => drawing = true);
 window.addEventListener('mouseup', () => drawing = false);
 window.addEventListener('keyup', (e) => {
-   if (e.key === 'a') { animate = (animate) ? false : true; }
-   if (e.key === '+') { loops++; console.log(loops); } 
-   if (e.key === '-' && loops > 1) { loops--; console.log(loops); }
+   if (e.key === 'a') {
+     animate = (animate) ? false : true;
+     animateCheckbox.checked = animate;
+   }
+   if (e.key === '+') {
+    loops++; 
+    loopsInput.value = loops.toString();
+   } 
+   if (e.key === '-' && loops > 1) {
+     loops--;
+     loopsInput.value = loops.toString();
+    }
    if (e.key === 'c') { clearCanvas(); }
    if (e.key === '1') {
       brush = NerdsRope;
@@ -39,12 +52,12 @@ window.addEventListener('keyup', (e) => {
     filterSelect.value = filterChoice;
   }
   if (e.key === 'g') {
-    lineWidth += 0.1
+    lineWidth += 0.1;
     ctx.lineWidth = lineWidth;
     lineWidthInput.value = ctx.lineWidth.toString();
   }
   if (e.key === 'b') {
-    lineWidth -= 0.1
+    lineWidth -= 0.1;
     ctx.lineWidth = lineWidth;
     lineWidthInput.value = ctx.lineWidth.toString();
   }
