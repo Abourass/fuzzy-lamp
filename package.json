@@ -1,0 +1,23 @@
+{
+  "name": "fuzzy-lamp",
+  "version": "1.0.0",
+  "description": "Paint in your browser and animate it",
+  "main": "index.js",
+  "scripts": {
+    "start": "snowpack dev",
+    "build": "snowpack build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abourass/fuzzy-lamp.git"
+  },
+  "author": "Antonio B",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Abourass/fuzzy-lamp/issues"
+  },
+  "homepage": "https://github.com/Abourass/fuzzy-lamp#readme",
+  "devDependencies": {
+    "snowpack": "^3.8.3"
+  }
+}
