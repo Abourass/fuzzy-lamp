@@ -55,8 +55,11 @@
       <input type="number" name="loops" id="loops" value="1" step="1">
     </div>
     <div class="option">
-      <label for="animate">Animate?</label>
-      <input type="checkbox" name="animate" id="animate">
+      <div class="toggle-button toggle-button--aava">
+        <input id="animate" type="checkbox">
+        <label for="animate" data-on-text="Animated" data-off-text="Animate?"></label>
+        <div class="toggle-button__icon"></div>
+      </div>
     </div>
   </div>
   <canvas id="canvas"></canvas>
