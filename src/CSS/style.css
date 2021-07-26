@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Harmattan&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Hachi Maru Pop', cursive;
+  font-family: 'Harmattan', sans-serif;
 }
 
 #canvas {
@@ -32,6 +32,7 @@
   position: relative;
   display: inline-block;
   color: #fff;
+  margin-top: 0.4rem;
 }
 
 .toggle-button label {
@@ -82,7 +83,7 @@
 }
 
 .toggle-button--aava input[type=checkbox]+label {
-  width: 160px;
+  width: 142px;
   background: #765f904a;
 }
 
@@ -94,16 +95,18 @@
 .toggle-button--aava input[type=checkbox]+label:after {
   opacity: 1;
   transform: translate(0, 0);
+  line-height: 33px;
 }
 
 .toggle-button--aava input[type=checkbox]:checked~label {
-  width: 160px;
+  width: 142px;
   background: #61B136;
 }
 
 .toggle-button--aava input[type=checkbox]:checked~label:before {
   opacity: 1;
   transform: translate(0, 0);
+  line-height: 33px;
 }
 
 .toggle-button--aava input[type=checkbox]:checked~label:after {
@@ -152,4 +155,13 @@ input[type="number"] {
 
 label {
   margin-right: 0.3rem;
+  font-size: 18px;
+}
+
+input {
+  font-size: 16px;
+}
+
+select {
+  font-size: 16px;
 }
