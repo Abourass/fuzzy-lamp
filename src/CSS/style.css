@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Loop&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Zen Loop", Helvetica, Arial, sans-serif;
 }
 
 #canvas {
@@ -141,4 +144,12 @@
 .toggle-button--aava .toggle-button__icon:after {
   width: 25px;
   transform: rotate(-45deg);
+}
+
+input[type="number"] {
+  width: 2.5rem;
+}
+
+label {
+  margin-right: 0.3rem;
 }
