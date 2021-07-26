@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build"
+    "build": "mkdir dist && snowpack build"
   },
   "repository": {
     "type": "git",

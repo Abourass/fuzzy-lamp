@@ -12,7 +12,7 @@ module.exports = {
   devOptions: {
     /* ... */
   },
-  buildOptions: { out: "docs", },
+  buildOptions: { out: "dist", },
   optimize: {
     bundle: true,
     minify: true,
