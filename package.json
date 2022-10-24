@@ -19,6 +19,6 @@
   "homepage": "https://github.com/Abourass/fuzzy-lamp#readme",
   "devDependencies": {
     "@snowpack/plugin-webpack": "^3.0.0",
-    "snowpack": "^3.8.3"
+    "snowpack": "^3.8.8"
   }
 }
